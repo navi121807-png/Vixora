@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIXORA | Catálogo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--azul-aurora:#0697BC;
+--azul-profundo:#44529F;
+--amarillo:#EACF05;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#1e293b,#0f172a);
+color:white;
+}
+
+/* NAV */
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 8%;
+position:fixed;
+width:100%;
+z-index:1000;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+/* HERO */
+.hero{
+height:50vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:
+radial-gradient(circle at 20% 30%, rgba(6,151,188,0.7), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(68,82,159,0.7), transparent 40%);
+}
+
+.hero h1{
+font-size:3rem;
+}
+
+/* SECTION */
+.section{
+padding:120px 8%;
+text-align:center;
+}
+
+.section-title{
+font-size:2rem;
+color:#00eaff;
+margin-bottom:15px;
+}
+
+.section p{
+max-width:700px;
+margin:auto;
+margin-bottom:50px;
+opacity:0.85;
+}
+
+/* GRID */
+.catalogo{
+display:grid;
+grid-template-columns:repeat(2, minmax(0,1fr));
+gap:30px;
+max-width:900px;
+margin:0 auto;
+}
+
+/* TARJETAS */
+.item{
+width:100%;
+aspect-ratio:4/3;
+border-radius:20px;
+overflow:hidden;
+cursor:pointer;
+transition:0.4s;
+position:relative;
+}
+
+.item img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+/* overlay */
+.item::after{
+content:"";
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+padding:15px;
+background:linear-gradient(transparent, rgba(0,0,0,0.8));
+font-size:0.9rem;
+opacity:0.85;
+}
+
+/* hover */
+.item:hover{
+transform:scale(1.05);
+box-shadow:0 20px 40px rgba(6,151,188,0.4);
+}
+
+.item:hover img{
+transform:scale(1.1);
+filter:brightness(0.7);
+}
+
+/* última centrada */
+.item.center{
+grid-column:1 / -1;
+max-width:420px;
+margin:0 auto;
+}
+
+/* CTA */
+.cta{
+margin:100px auto 0;
+max-width:900px;
+padding:60px 40px;
+border-radius:25px;
+text-align:center;
+
+background:
+radial-gradient(circle at 20% 30%, rgba(6,151,188,0.7), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(68,82,159,0.7), transparent 40%),
+linear-gradient(135deg,#0f172a,#1e293b);
+
+box-shadow:0 20px 50px rgba(0,0,0,0.4);
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.cta h2{
+font-size:2rem;
+margin-bottom:15px;
+}
+
+.cta p{
+opacity:0.9;
+margin-bottom:25px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 40px;
+background:var(--amarillo);
+color:black;
+font-weight:600;
+border-radius:40px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.08);
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+	
+
+
+/* FOOTER */
+footer{
+background:#0f172a;
+padding:50px 8%;
+text-align:center;
+margin-top:60px;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div><strong>VIXORA</strong></div>
+<div>
+<a href="index.html#contacto">Inicio</a>
+</div>
+</nav>
+
+<div class="hero">
+<h1>Catálogo Visual</h1>
+</div>
+
+<section class="section">
+<h2 class="section-title">Explora Nuestros Paquetes</h2>
+<p>Descubre nuestras soluciones visuales diseñadas para potenciar tu marca.</p>
+
+<div class="catalogo">
+
+<div class="item"><img src="WhatsApp Image 2026-04-27 at 9.18.13 PM.jpeg"></div>
+<div class="item"><img src="WhatsApp Image 2026-04-27 at 9.18.15 PM (5).jpeg"></div>
+<div class="item"><img src="WhatsApp Image 2026-04-27 at 9.18.14 PM.jpeg"></div>
+<div class="item"><img src="WhatsApp Image 2026-04-27 at 9.18.15 PM.jpeg"></div>
+<div class="item"><img src="WhatsApp Image 2026-04-27 at 9.18.15 PM (1).jpeg"></div>
+<div class="item"><img src="WhatsApp Image 2026-04-27 at 9.18.15 PM (2).jpeg"></div>
+<div class="item"><img src="WhatsApp Image 2026-04-27 at 9.18.15 PM (3).jpeg"></div>
+<div class="item"><img src="WhatsApp Image 2026-04-27 at 9.18.15 PM (4).jpeg"></div>
+<div class="item center"><img src="WhatsApp Image 2026-04-27 at 9.18.15 PM (5).jpeg"></div>
+
+</div>
+
+<!-- CTA -->
+<div class="cta">
+<h2>¿Te interesa alguno de nuestros servicios?</h2>
+<p>Contáctanos y recibe una cotización personalizada.</p>
+<a href="index.html" class="btn">Solicitar Cotización</a>
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 VIXORA Creative / Design</p>
+<p>Puebla Centro, México</p>
+</footer>
+
+</body>
+</html>

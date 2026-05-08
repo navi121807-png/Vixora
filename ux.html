@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIXORA | Portafolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--azul-aurora:#0697BC;
+--azul-profundo:#44529F;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#1e293b,#0f172a);
+color:white;
+overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 8%;
+position:fixed;
+width:100%;
+z-index:1000;
+transition:0.4s;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+}
+
+nav.scrolled{
+background:rgba(15,23,42,0.95);
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+/* HERO */
+.hero{
+height:60vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:
+radial-gradient(circle at 20% 30%, rgba(6,151,188,0.7), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(68,82,159,0.7), transparent 40%);
+margin-bottom:60px;
+}
+
+/* 🔥 ANIMACIÓN TÍTULO */
+.hero h1{
+font-size:3rem;
+opacity:0;
+transform:translateX(120px);
+animation:slideIn 1.2s ease-out forwards;
+animation-delay:0.3s;
+}
+
+@keyframes slideIn{
+0%{
+opacity:0;
+transform:translateX(120px);
+}
+60%{
+opacity:1;
+transform:translateX(-10px);
+}
+100%{
+opacity:1;
+transform:translateX(0);
+}
+}
+
+/* SECTION */
+.section{
+padding:140px 8% 120px;
+text-align:center;
+}
+
+.section-title{
+font-size:2rem;
+color:#00eaff;
+margin-bottom:20px;
+}
+
+.section p{
+max-width:700px;
+margin:auto;
+margin-bottom:50px;
+opacity:0.8;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+/* CARD */
+.card{
+position:relative;
+height:280px;
+border-radius:20px;
+overflow:hidden;
+cursor:pointer;
+transition:0.4s;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.1);
+box-shadow:0 15px 30px rgba(0,0,0,0.3);
+}
+
+/* brillo */
+.card::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+transition:0.6s;
+}
+
+.card:hover::before{
+left:100%;
+}
+
+/* imagen */
+.card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.5s;
+}
+
+/* overlay */
+.overlay{
+position:absolute;
+bottom:0;
+width:100%;
+padding:20px;
+background:linear-gradient(transparent, rgba(0,0,0,0.9));
+transform:translateY(100%);
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 25px 50px rgba(6,151,188,0.4);
+}
+
+.card:hover img{
+transform:scale(1.1);
+filter:brightness(0.7);
+}
+
+.card:hover .overlay{
+transform:translateY(0);
+}
+
+.overlay h3{
+color:#00eaff;
+margin-bottom:5px;
+}
+
+/* LIGHTBOX */
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:flex;
+justify-content:center;
+align-items:center;
+opacity:0;
+pointer-events:none;
+transition:0.3s;
+}
+
+.lightbox img{
+max-width:80%;
+border-radius:15px;
+}
+
+.lightbox.active{
+opacity:1;
+pointer-events:auto;
+}
+
+	/* CTA FINAL */
+.cta-final{
+margin:100px auto 0;
+max-width:900px;
+padding:60px 40px;
+border-radius:25px;
+text-align:center;
+
+background:
+radial-gradient(circle at 20% 30%, rgba(6,151,188,0.7), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(68,82,159,0.7), transparent 40%),
+linear-gradient(135deg,#0f172a,#1e293b);
+
+box-shadow:0 20px 50px rgba(0,0,0,0.4);
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.cta-final h2{
+font-size:2rem;
+margin-bottom:15px;
+}
+
+.cta-final p{
+opacity:0.9;
+margin-bottom:25px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 40px;
+background:#EACF05;
+color:black;
+font-weight:600;
+border-radius:40px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.08);
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+	
+/* ANIMACIÓN SCROLL */
+.show{
+opacity:1 !important;
+transform:translateY(0) !important;
+}
+
+.section, .card{
+opacity:0;
+transform:translateY(40px);
+transition:0.8s;
+}
+
+/* FOOTER */
+footer{
+background:#0f172a;
+padding:50px 8%;
+text-align:center;
+margin-top:60px;
+border-top:1px solid rgba(255,255,255,0.1);
+}
+
+footer p{
+opacity:0.7;
+margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div><strong>VIXORA</strong></div>
+<div>
+<a href="index.html">Inicio</a>
+</div>
+</nav>
+
+<div class="hero">
+<h1>UX/UI&nbsp;</h1>
+</div>
+
+<section class="section">
+<h2 class="section-title">Proyectos Realizados</h2>
+<p>Explora algunos de nuestros trabajos más destacados en diseño y creatividad visual.</p>
+
+<div class="grid">
+
+<div class="card"><img src="UX5.png"><div class="overlay"><h3>FULL STOCK&nbsp;&nbsp;</h3>
+
+    <p> Catálogo de Tenis&nbsp; &nbsp;</p>
+</div></div>
+<div class="card"><img src="UX4.png"><div class="overlay"><h3>FULL STOCK&nbsp;</h3>
+  <p>Catálogo de tenis&nbsp;</p>
+</div></div>
+<div class="card"><img src="UX10.png"><div class="overlay"><h3>NUBES NEON&nbsp;</h3>
+    <p>Catálogo de Playeras&nbsp;&nbsp;</p>
+</div></div>
+<div class="card"><img src="UX9.png"><div class="overlay"><h3>NUBES NEON&nbsp;</h3>
+  <p>Catálogo de Playeras&nbsp;</p>
+</div></div>
+<div class="card"><img src="UX1.png"><div class="overlay"><h3>PORTAFOLIO&nbsp;</h3>
+  <p>Portafolio de un Diseñador Gráfico&nbsp;&nbsp;</p>
+</div></div>
+<div class="card"><img src="UX2.png"><div class="overlay"><h3>PORTAFOLIO&nbsp;</h3>
+  <p>Portafolio de Fotografía&nbsp;</p>
+</div></div>
+<div class="card"><img src="UX11.png"><div class="overlay"><h3>SRT HELLCAT&nbsp;</h3>
+    <p>Diseñada para informar sobre auto&nbsp; &nbsp;</p>
+</div></div>
+<div class="card"><img src="UX3.png"><div class="overlay"><h3>MUDA MUDA COFFE</h3>    <p>diseñada para ofrecer sus productos&nbsp;&nbsp;</p>
+</div></div>
+
+</div>
+</section>
+	
+	<!-- CTA FINAL -->
+<section class="cta-final">
+<h2>¿Te interesa este servicio?</h2>
+<p>Explora nuestros paquetes y encuentra la mejor opción para tu marca.</p>
+<a href="catalogo.html" class="btn">Ver Catálogo</a>
+</section>
+	
+	
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+</div>
+
+<footer>
+<p>© 2026 VIXORA Creative / Design</p>
+<p>Puebla Centro, México</p>
+</footer>
+
+<script>
+
+/* NAV SCROLL */
+window.addEventListener("scroll",()=>{
+document.querySelector("nav").classList.toggle("scrolled",window.scrollY>50);
+});
+
+/* ANIMACIONES */
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+},{threshold:0.2});
+
+document.querySelectorAll(".section, .card").forEach(el=>observer.observe(el));
+
+/* LIGHTBOX */
+const cards=document.querySelectorAll(".card img");
+const lightbox=document.getElementById("lightbox");
+const lightboxImg=lightbox.querySelector("img");
+
+cards.forEach(img=>{
+img.addEventListener("click",()=>{
+lightbox.classList.add("active");
+lightboxImg.src=img.src;
+});
+});
+
+lightbox.addEventListener("click",()=>{
+lightbox.classList.remove("active");
+});
+
+</script>
+
+</body>
+</html>
